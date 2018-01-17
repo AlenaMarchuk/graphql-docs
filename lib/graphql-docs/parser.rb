@@ -36,6 +36,7 @@ module GraphQLDocs
 
             @processed_schema[:operation_types] << data
           elsif object.name == 'Mutation'
+              next
               data[:name] = object.name
               data[:description] = object.description
 
