@@ -26,14 +26,14 @@ module GraphQLDocs
     def generate
       FileUtils.rm_rf(@options[:output_dir]) if @options[:delete_output]
 
-      create_graphql_operation_pages
+      # create_graphql_operation_pages
       create_graphql_object_pages
-      create_graphql_mutation_pages
-      create_graphql_interface_pages
-      create_graphql_enum_pages
-      create_graphql_union_pages
-      create_graphql_input_object_pages
-      create_graphql_scalar_pages
+      # create_graphql_mutation_pages
+      # create_graphql_interface_pages
+      # create_graphql_enum_pages
+      # create_graphql_union_pages
+      # create_graphql_input_object_pages
+      # create_graphql_scalar_pages
 
       unless @options[:landing_pages][:index].nil?
         write_file('static', 'index', File.read(@options[:landing_pages][:index]))
@@ -42,30 +42,30 @@ module GraphQLDocs
       unless @options[:landing_pages][:object].nil?
         write_file('static', 'object', File.read(@options[:landing_pages][:object]))
       end
-
-      unless @options[:landing_pages][:mutation].nil?
-        write_file('operation', 'mutation', File.read(@options[:landing_pages][:mutation]))
-      end
-
-      unless @options[:landing_pages][:interface].nil?
-        write_file('static', 'interface', File.read(@options[:landing_pages][:interface]))
-      end
-
-      unless @options[:landing_pages][:enum].nil?
-        write_file('static', 'enum', File.read(@options[:landing_pages][:enum]))
-      end
-
-      unless @options[:landing_pages][:union].nil?
-        write_file('static', 'union', File.read(@options[:landing_pages][:union]))
-      end
-
-      unless @options[:landing_pages][:input_object].nil?
-        write_file('static', 'input_object', File.read(@options[:landing_pages][:input_object]))
-      end
-
-      unless @options[:landing_pages][:scalar].nil?
-        write_file('static', 'scalar', File.read(@options[:landing_pages][:scalar]))
-      end
+      #
+      # unless @options[:landing_pages][:mutation].nil?
+      #   write_file('operation', 'mutation', File.read(@options[:landing_pages][:mutation]))
+      # end
+      #
+      # unless @options[:landing_pages][:interface].nil?
+      #   write_file('static', 'interface', File.read(@options[:landing_pages][:interface]))
+      # end
+      #
+      # unless @options[:landing_pages][:enum].nil?
+      #   write_file('static', 'enum', File.read(@options[:landing_pages][:enum]))
+      # end
+      #
+      # unless @options[:landing_pages][:union].nil?
+      #   write_file('static', 'union', File.read(@options[:landing_pages][:union]))
+      # end
+      #
+      # unless @options[:landing_pages][:input_object].nil?
+      #   write_file('static', 'input_object', File.read(@options[:landing_pages][:input_object]))
+      # end
+      #
+      # unless @options[:landing_pages][:scalar].nil?
+      #   write_file('static', 'scalar', File.read(@options[:landing_pages][:scalar]))
+      # end
 
       if @options[:use_default_styles]
         assets_dir = File.join(File.dirname(__FILE__), 'layouts', 'assets')

@@ -6,7 +6,20 @@ module GraphQLDocs
 
     attr_reader :processed_schema
 
-    WHITE_LIST = ["Company", "Building", "Floor", "Space", "Employee", "MapObject", "Search"]
+    WHITE_LIST = [
+        "Company",
+        "Building",
+        "Floor",
+        "Space",
+        "Department",
+        "Employee",
+        "MapObject",
+        "BuildingSearch",
+        "FloorSearch",
+        "SpaceSearch",
+        "EmployeeSearch",
+        "DepartmentSearch"
+    ].freeze
 
     def initialize(schema, options)
       @options = options
@@ -108,7 +121,7 @@ module GraphQLDocs
         end
       end
 
-      @processed_schema[:mutation_types].sort_by! { |o| o[:name] }
+       @processed_schema[:mutation_types].sort_by! { |o| o[:name] }
       @processed_schema[:object_types].sort_by! { |o| o[:name] }
       @processed_schema[:interface_types].sort_by! { |o| o[:name] }
       @processed_schema[:enum_types].sort_by! { |o| o[:name] }
