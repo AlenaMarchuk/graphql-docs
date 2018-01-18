@@ -6,6 +6,8 @@ module GraphQLDocs
 
     attr_reader :processed_schema
 
+    WHITE_LIST = ["Company", "Building", "Floor", "Space", "Employee", "MapObject", "Search"]
+
     def initialize(schema, options)
       @options = options
       @schema = GraphQL::Schema.from_definition(schema)
@@ -25,6 +27,7 @@ module GraphQLDocs
       @schema.types.each_value do |object|
         data = {}
 
+        next unless WHITE_LIST.include?(object.name)
         case object
         when ::GraphQL::ObjectType
           if object.name == 'Query'
